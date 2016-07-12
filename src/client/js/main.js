@@ -1,7 +1,7 @@
 // Display current datetime to make sure is loaded
 // console.log(new Date());
 
-// Modify node content
+// Modify node content when observe trigged
 function modifyNode(node) {
     var resultArea = $(node, "#resultarea");
     var resultBox  = resultArea.find("#resultbox");
@@ -35,7 +35,7 @@ observer.observe($("div#mainbody")[0], {
     subtree: true
 });
 
-//
+// Monitor static or dynamic .preview-link element
 $(document).on("click", ".preview-link", function() {
     var url  = $(this).data("url");
     var self = this;
