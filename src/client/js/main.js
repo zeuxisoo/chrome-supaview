@@ -2,9 +2,21 @@
 // console.log(new Date());
 
 // Modify node content when observe trigged
-function modifyNode(node) {
+function modifyResultAreaNode(node) {
     var resultArea = $(node, "#resultarea");
     var resultBox  = resultArea.find("#resultbox");
+    var familyBox  = resultBox.find(".familybox");
+    var productBox = familyBox.find(".productbox");
+
+    productBox.find(".current ul.links li").each(function(i, link) {
+        var href = $(link).find("a").attr('href');
+
+        $(link).append('<a href="javascript:void(0)" data-url="' + href + '" class="preview-link">Preview</a>');
+    });
+}
+
+function modifyResultBoxNode(node) {
+    var resultBox  = $(node, "#resultbox");
     var familyBox  = resultBox.find(".familybox");
     var productBox = familyBox.find(".productbox");
 
@@ -22,7 +34,11 @@ var observer = new MutationObserver(function(mutations, observer) {
     mutations.forEach(function(mutation) {
         mutation.addedNodes.forEach(function(node) {
             if (node.nodeType === 1 && node.id === "resultarea") {
-                modifyNode(node);
+                modifyResultAreaNode(node);
+            }
+
+            if (node.nodeType === 1 && node.id === "resultbox") {
+                modifyResultBoxNode(node);
             }
         });
     });
