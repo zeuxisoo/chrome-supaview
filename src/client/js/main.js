@@ -1,28 +1,5 @@
 // Display current datetime to make sure is loaded
-console.log(new Date());
-
-//
-// function injectAssets(type, url) {
-//     var element;
-
-//     if (type === 'js') {
-//         element      = document.createElement("script");
-//         element.type = "text/javascript";
-//         element.src  = url;
-//     }
-
-//     if (type === 'css') {
-//         element      = document.createElement("link");
-//         element.rel  = "stylesheet";
-//         element.type = "text/css";
-//         element.href = url;
-//     }
-
-//     (document.head || document.documentElement).appendChild(element);
-// }
-
-// injectAssets("js",  "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js");
-// injectAssets("css", "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css");
+// console.log(new Date());
 
 // Modify node content
 function modifyNode(node) {
