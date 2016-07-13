@@ -75,6 +75,17 @@ $(document).on("click", ".preview-link", function() {
             fileNameListBlock.find("#fileNameList").append(fileNameElement);
         });
 
+        // Find proceed download link and parse from javascript
+        var proceedDownloadLinkCode    = downloadList.find(".dl_proceed_button script").html(); console.log(proceedDownloadLinkCode);
+        var proceedDownloadLinkMatches = /<a\shref=\\"(.*)\\">/i.exec(proceedDownloadLinkCode);
+        var proceedDownloadLinkUrl     = proceedDownloadLinkMatches[1];
+
+        if (proceedDownloadLinkUrl != null && proceedDownloadLinkUrl[0] != '/') {
+            proceedDownloadLinkUrl = '/' + proceedDownloadLinkUrl;
+        }
+
+        fileNameListBlock.append("<div id='proceedDownloadLink' style='margin-top: 10px'><a href='" + proceedDownloadLinkUrl + "'>Proceed Download</a></div>");
+
         // Show file list
         swal({
             title: pageHeading.html(),
