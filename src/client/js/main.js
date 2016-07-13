@@ -76,7 +76,7 @@ $(document).on("click", ".preview-link", function() {
         });
 
         // Find proceed download link and parse from javascript
-        var proceedDownloadLinkCode    = downloadList.find(".dl_proceed_button script").html(); console.log(proceedDownloadLinkCode);
+        var proceedDownloadLinkCode    = downloadList.find(".dl_proceed_button script").html();
         var proceedDownloadLinkMatches = /<a\shref=\\"(.*)\\">/i.exec(proceedDownloadLinkCode);
         var proceedDownloadLinkUrl     = proceedDownloadLinkMatches[1];
 
